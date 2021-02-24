@@ -40,11 +40,11 @@ const getRandomJoke = (request, response, acceptedTypes) => {
 
   if (acceptedTypes[0] === 'text/xml') {
     const responseXML = `
-    <joke>
-      <q>${responseObj.q}</q>
-      <a>${responseObj.a}</a>
-    </joke>
-    `;
+      <joke>
+        <q>${responseObj.q}</q>
+        <a>${responseObj.a}</a>
+      </joke>
+      `;
     return respond(request, response, responseXML, 'text/xml');
   }
 
@@ -59,10 +59,10 @@ const getRandomJokes = (request, response, acceptedTypes, params) => {
     let responseXML = '<jokes>';
     for (let i = 0; i < length; i += 1) {
       responseXML += `
-      <joke>
-        <q>${responseObj[i].q}</q>
-        <a>${responseObj[i].a}</a>
-      </joke>`;
+        <joke>
+          <q>${responseObj[i].q}</q>
+          <a>${responseObj[i].a}</a>
+        </joke>`;
     }
     responseXML += '</jokes>';
     return respond(request, response, responseXML, 'text/xml');
@@ -72,4 +72,6 @@ const getRandomJokes = (request, response, acceptedTypes, params) => {
   return respond(request, response, jokesString, 'application/json');
 };
 
-module.exports = { getRandomJoke, getRandomJokes };
+module.exports = {
+  getRandomJoke, getRandomJokes,
+};
